@@ -7,17 +7,17 @@ If you choose `top` as post type, then you can specify a time period of `day`, `
 
 Outputs an array of posts. Each post object has the following fields:
 
-````{
-		id: Unique Post ID,
-		title: Post Title,
-		selftext: Post Selftext,
-		subreddit: Subreddit,
-		domain: Post Domain,
-		upvotes: Post Upvotes,
-		author: Post Author,
-		comments: Number of Comments,
-		permalink: Post Link,
-		type: Post Type,
-		url: Post URL,
-		score: Post Score
-	}
+````
+	id: Unique Post ID,
+	title: Post Title,
+	selftext: Post Selftext,
+	subreddit: Subreddit,
+	domain: Post Domain,
+	upvotes: Post Upvotes,
+	author: Post Author,
+	comments: Number of Comments,
+	permalink: Post Link,
+	type: Post Type,
+	url: Post URL,
+	score: Post Score
+````
