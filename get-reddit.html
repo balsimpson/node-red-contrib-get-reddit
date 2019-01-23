@@ -1,0 +1,95 @@
+<script type="text/javascript">
+	RED.nodes.registerType('get-reddit', {
+		category: 'advanced',
+		color: '#EB8769',
+		defaults: {
+			name: { value: 'Get Reddit' },
+			subreddit: { value: 'popular' },
+			posttype: { value: 'top' },
+			timeperiod: { value: 'day' },
+		},
+		inputs: 1,
+		outputs: 1,
+		icon: 'batch.png',
+		label: function () {
+			return this.name || 'get-reddit';
+		}
+	});
+</script>
+
+<script type="text/x-red" data-template-name='get-reddit'>
+	<div class="form-row">
+		<label for='node-input-name'><i class='icon-tag'></i> Name</label>
+		<input type='text' id='node-input-name' placeholder='Name'>
+	</div>
+	<div class='form-row'>
+		<label for='node-input-subreddit'><i class='icon-tag'></i> Subreddit</label>
+		<input type='text' id='node-input-subreddit' placeholder='subreddit'>
+	</div>
+	<div class='form-row'>
+		<label for='node-input-posttype'><i class='icon-tag'></i> Post Type</label>
+		<select id='node-input-posttype'>
+			<option value='top' selected>Top</option>
+			<option value='hot' selected>Hot</option>
+		</select>
+	</div>
+	<div class='form-row'>
+		<label for='node-input-timeperiod'><i class='icon-tag'></i> Time Period</label>
+		<select id='node-input-timeperiod'>
+			<option value='day' selected>Day</option>
+			<option value='week'>Week</option>
+			<option value='month'>Month</option>
+			<option value='year'>Year</option>
+			<option value='all'>All</option>
+		</select>
+	</div>
+</script>
+
+<script type='text/x-red' data-help-name='get-reddit'>
+	<h2>Get Reddit Posts</h2>
+<br>
+<p>Choose your subreddit, post type and specify time period to get posts from subreddits.</p>
+
+<h3>Inputs</h3>
+<dl class="message-properties">
+	<dt>subreddit
+		<span class="property-type">string</span>
+	</dt>
+	<dd> the subreddit to get posts from. e.g: todayilearned </dd>
+	<dt>post type
+		<span class="property-type">string</span>
+	</dt>
+	<dd> can be top or hot. If top you can specify a time period.</dd>
+	<dt>time period
+		<span class="property-type">string</span>
+	</dt>
+	<dd> If you choose top posts, then you can specify a time period - day | week | month | year | all.</dd>
+</dl>
+
+<h3>Outputs</h3>
+<ol class="node-ports">
+	<li>Standard output
+		<dl class="message-properties">
+			<dt>payload <span class="property-type">array</span></dt>
+			<dd> is an array of posts. Each post will have the following fields:
+				<pre><code>
+				{
+					id: Unique Post ID,
+					title: Post Title,
+					selftext: Post Selftext,
+					subreddit: Subreddit,
+					domain: Post Domain,
+					upvotes: Post Upvotes,
+					author: Post Author,
+					comments: Number of Comments,
+					permalink: Post Link,
+					type: Post Type,
+					url: Post URL,
+					score: Post Score
+				}							
+			</code></pre>
+			</dd>
+		</dl>
+	</li>
+</ol>
+</script>
