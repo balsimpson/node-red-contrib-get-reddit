@@ -94,8 +94,7 @@ const extractor = (feed) => {
 				comments: child.num_comments,
 				permalink: child.permalink,
 				type: child.post_hint,
-				url: getMediaFromUrl(child),
-				score: postScore(child)
+				url: getMediaFromUrl(child)
 			};
 
 			if (child.domain == 'v.redd.it' && child.crosspost_parent_list && child.crosspost_parent_list[0].secure_media) {
@@ -106,7 +105,7 @@ const extractor = (feed) => {
 			posts.push(post);
 		}
 
-		posts.sort(compare);
+		// posts.sort(compare);
 		// console.log('posts: ' + JSON.stringify(posts));
 		return posts;
 

@@ -3,7 +3,7 @@
 		category: 'advanced',
 		color: '#EB8769',
 		defaults: {
-			name: { value: 'Get Reddit' },
+			name: { value: '' },
 			subreddit: { value: 'popular' },
 			posttype: { value: 'top' },
 			timeperiod: { value: 'day' },
@@ -12,7 +12,7 @@
 		outputs: 1,
 		icon: 'batch.png',
 		label: function () {
-			return this.name || 'get-reddit';
+			return this.subreddit || 'get reddit';
 		}
 	});
 </script>
@@ -72,21 +72,18 @@
 		<dl class="message-properties">
 			<dt>payload <span class="property-type">array</span></dt>
 			<dd> is an array of posts. Each post will have the following fields:
-				<pre><code>
-				{
-					id: Unique Post ID,
-					title: Post Title,
-					selftext: Post Selftext,
-					subreddit: Subreddit,
-					domain: Post Domain,
-					upvotes: Post Upvotes,
-					author: Post Author,
-					comments: Number of Comments,
-					permalink: Post Link,
-					type: Post Type,
-					url: Post URL,
-					score: Post Score
-				}							
+			<pre><code>
+			id: Unique Post ID,
+			title: Post Title,
+			selftext: Post Selftext,
+			subreddit: Subreddit,
+			domain: Post Domain,
+			upvotes: Post Upvotes,
+			author: Post Author,
+			comments: Number of Comments,
+			permalink: Post Link,
+			type: Post Type,
+			url: Post URL	
 			</code></pre>
 			</dd>
 		</dl>
